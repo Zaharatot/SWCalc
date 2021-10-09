@@ -1,0 +1,189 @@
+﻿<UserControl x:Class="SWCalc.Content.Controls.PlantInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SWCalc.Content.Controls"
+             mc:Ignorable="d" 
+             Height="330" d:DesignWidth="600" MinWidth="600">
+    <!-- Обводка для всего этого барахла -->
+    <Border x:Name="MainBorder" BorderThickness="2" CornerRadius="10" BorderBrush="Black" Background="#66efefef" Margin="0,5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <!-- Столбец для иконки -->
+                <ColumnDefinition Width="150" />
+                <!-- Столбец Отчерчивания -->
+                <ColumnDefinition Width="Auto" />
+                <!-- Столбец названий -->
+                <ColumnDefinition />
+                <!-- Столбец Отчерчивания -->
+                <ColumnDefinition Width="Auto" />
+                <!-- Столбец результатов -->
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <!-- СТрока названия культуры -->
+                <RowDefinition Height="40" />
+                <!-- Строка отчерчивания -->
+                <RowDefinition Height="Auto" />
+                <!-- Строка контента -->
+                <RowDefinition />
+            </Grid.RowDefinitions>
+        
+            <!-- Назввание культуры -->
+            <TextBlock x:Name="PlantNameTextBlock" Text="Название культуры" FontWeight="DemiBold"
+                       Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" FontSize="20"
+                       VerticalAlignment="Center" HorizontalAlignment="Center" FontStyle="Italic" />
+            <!-- Отчерчивание -->
+            <Rectangle Height="1" Fill="DarkGray" Margin="15,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" />
+            <!-- Иконка культуры -->
+            <Image x:Name="PlaniIconImage" Grid.Row="2" Grid.Column="0" 
+                   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" />
+            <!-- Отчерчивание -->
+            <Rectangle Width="1" Fill="DarkGray" Margin="0, 10" Grid.Row="2" Grid.Column="1" Grid.RowSpan="5" />
+            <!-- Панель списка параметров -->
+            <StackPanel Grid.Row="2" Grid.Column="2">
+                <!-- Цена покупки в JoJa -->
+                <TextBlock x:Name="PriseJojaTextBlock" Padding="5" Foreground="DarkOrange">
+                    <Run Text="Цена покупки (Joja):" FontWeight="Medium" />
+                    <Run x:Name="PriseJojaRun" Text="75" />
+                    <Run Text="г." />
+                </TextBlock>
+                <!-- Цена покупки у Пьера -->
+                <TextBlock x:Name="PrisePiereTextBlock" Padding="5" Foreground="DarkOrange">
+                    <Run Text="Цена покупки (Пьер):" FontWeight="Medium" />
+                    <Run x:Name="PrisePiereRun" Text="60" />
+                    <Run Text="г." />
+                </TextBlock>
+                <!-- Цена покупки в другом месте -->
+                <TextBlock x:Name="PriseOtherTextBlock" Padding="5" Foreground="DarkOrange" Visibility="Collapsed">
+                    <Run Text="Цена покупки в другом месте:" FontWeight="Medium" />
+                    <Run x:Name="PriseOtherRun" Text="60" />
+                    <Run Text="г." />
+                </TextBlock>
+                <!-- Отчерчивание -->
+                <Rectangle Height="1" Fill="DarkGray" Margin="5,0" />
+                <!-- Урожай с одного куста -->
+                <TextBlock Padding="5" Foreground="DarkGreen">
+                    <Run Text="Урожай с одного куста:" FontWeight="Medium" />
+                    <Run x:Name="HarvestRun" Text="1" />
+                    <Run Text="шт" />
+                </TextBlock>
+                <!-- Время созревания куста -->
+                <TextBlock Padding="5" Foreground="DarkGreen">
+                    <Run Text="Время созревания:" FontWeight="Medium" />
+                    <Run x:Name="RipeningTimeRun" Text="10" />
+                    <Run Text="д." />
+                </TextBlock>
+                <!-- Дополнитьельный сбор -->
+                <TextBlock x:Name="AdditionalTimeTextBlock" Padding="5" Foreground="DarkGreen">
+                    <Run Text="Дополнительный сбор через:" FontWeight="Medium" />
+                    <Run x:Name="AdditionalTimeRun" Text="3" />
+                    <Run Text="д." />
+                </TextBlock>
+                <!-- Отчерчивание -->
+                <Rectangle Height="1" Fill="DarkGray" Margin="5,0" />
+                <!-- Заголовок цен -->
+                <TextBlock Padding="5" Foreground="Black" Text="Цена за продажу:" />
+                <!-- Цена за обычный -->
+                <TextBlock Padding="30,5,5,5" Foreground="Black">
+                    <Run Text="Обычный грейд:" FontWeight="Medium" />
+                    <Run x:Name="PriceOrdinaryRun" Text="40" />
+                    <Run Text="г." />
+                </TextBlock>
+                <!-- Цена за silver -->
+                <TextBlock Padding="30,5,5,5" Foreground="#ff666666">
+                    <Run Text="Серебрянный грейд:" FontWeight="Medium" />
+                    <Run x:Name="PriceSilverRun" Text="50" />
+                    <Run Text="г." />
+                </TextBlock>
+                <!-- Цена за gold -->
+                <TextBlock Padding="30,5,5,5" Foreground="#ffeeaa00">
+                    <Run Text="Золотой грейд:" FontWeight="Medium" />
+                    <Run x:Name="PriceGoldRun" Text="60" />
+                    <Run Text="г." />
+                </TextBlock>
+                <!-- Цена за iridium -->
+                <TextBlock Padding="30,5,5,5" Foreground="DarkViolet">
+                    <Run Text="Иридиевый грейд:" FontWeight="Medium" />
+                    <Run x:Name="PriceIridiumRun" Text="80" />
+                    <Run Text="г." />
+                </TextBlock>
+                <!-- Отчерчивание -->
+                <Rectangle Height="1" Fill="DarkGray" Margin="5,0" />
+            </StackPanel>
+            <!-- Отчерчивание -->
+            <Rectangle Width="1" Fill="DarkGray" Margin="0, 10" Grid.Row="2" Grid.Column="3" Grid.RowSpan="5" />
+            <!-- Панель списка Результатов -->
+            <StackPanel Grid.Row="2" Grid.Column="4">
+                <!-- Заголовок итогов -->
+                <TextBlock Padding="5" Foreground="Black" Text="Результат за сезон:" />
+                <!-- Количество урожая -->
+                <TextBlock Padding="30,5,5,5" Foreground="Black">
+                    <Run Text="Количество урожая:" FontWeight="Medium" />
+                    <Run x:Name="HarvestCountRun" Text="40" />
+                    <Run Text="шт" />
+                </TextBlock>
+                <!-- Отчерчивание -->
+                <Rectangle Height="1" Fill="DarkGray" Margin="5,0" />
+                <!-- Цена за обычный -->
+                <TextBlock Padding="30,5,5,5" Foreground="Black">
+                    <Run Text="Обычный грейд:" FontWeight="Medium" />
+                    <Run x:Name="SeasonPriceOrdinaryRun" Text="40" />
+                    <Run Text="г." />
+                </TextBlock>
+                <!-- Цена за silver -->
+                <TextBlock Padding="30,5,5,5" Foreground="#ff666666">
+                    <Run Text="Серебрянный грейд:" FontWeight="Medium" />
+                    <Run x:Name="SeasonPriceSilverRun" Text="50" />
+                    <Run Text="г." />
+                </TextBlock>
+                <!-- Цена за gold -->
+                <TextBlock Padding="30,5,5,5" Foreground="#ffeeaa00">
+                    <Run Text="Золотой грейд:" FontWeight="Medium" />
+                    <Run x:Name="SeasonPriceGoldRun" Text="60" />
+                    <Run Text="г." />
+                </TextBlock>
+                <!-- Цена за iridium -->
+                <TextBlock Padding="30,5,5,5" Foreground="DarkViolet">
+                    <Run Text="Иридиевый грейд:" FontWeight="Medium" />
+                    <Run x:Name="SeasonPriceIridiumRun" Text="80" />
+                    <Run Text="г." />
+                </TextBlock>
+                
+                <!-- Панель переработки -->
+                <StackPanel x:Name="ProducePanel">
+                    <!-- Отчерчивание -->
+                    <Rectangle Height="1" Fill="DarkGray" Margin="5,0" />
+                    <!-- Цена за сок -->
+                    <TextBlock x:Name="JuiceTextBlock" Padding="30,5,5,5" Foreground="#ff00aa00">
+                        <Run Text="Сок:" FontWeight="Medium" />
+                        <Run x:Name="SeasonPriceJuiceRun" Text="60" />
+                        <Run Text="г." />
+                    </TextBlock>
+                    <!-- Цена за вино -->
+                    <TextBlock x:Name="VineTextBlock" Padding="30,5,5,5" Foreground="#ffdd00aa">
+                        <Run Text="Вино:" FontWeight="Medium" />
+                        <Run x:Name="SeasonPriceVineRun" Text="60" />
+                        <Run Text="г." />
+                    </TextBlock>
+                    <!-- Цена за консервы -->
+                    <TextBlock x:Name="PicklesTextBlock" Padding="30,5,5,5" Foreground="#ff008800">
+                        <Run Text="Консервы:" FontWeight="Medium" />
+                        <Run x:Name="SeasonPricePicklesRun" Text="60" />
+                        <Run Text="г." />
+                    </TextBlock>
+                    <!-- Цена за джем -->
+                    <TextBlock x:Name="JamTextBlock" Padding="30,5,5,5" Foreground="#ff880000">
+                        <Run Text="Джем:" FontWeight="Medium" />
+                        <Run x:Name="SeasonPriceJamRun" Text="60" />
+                        <Run Text="г." />
+                    </TextBlock>
+                </StackPanel>
+                <!-- Отчерчивание -->
+                <Rectangle Height="1" Fill="DarkGray" Margin="5,0" />
+            </StackPanel>
+
+        </Grid>
+    </Border>
+</UserControl>

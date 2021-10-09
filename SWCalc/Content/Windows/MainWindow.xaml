@@ -1,0 +1,45 @@
+﻿<Window xmlns:Controls="clr-namespace:SWCalc.Content.Controls"  x:Class="SWCalc.Content.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SWCalc.Content.Windows"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="SWCalc" Height="500" Width="950">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <!-- Панель параметров -->
+            <ColumnDefinition Width="250" />
+            <!-- Панель контента -->
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!-- Панель управления программой -->
+        <StackPanel Grid.Column="0" Margin="10">
+            <!-- Количество посадок -->
+            <TextBlock Text="Количество посадок:" />
+            <TextBox x:Name="CountPlantsTextBox" Text="20" TextChanged="CountPlantsTextBox_TextChanged" />
+            <!-- Кнопка обновления значений -->
+            <Button x:Name="UpdateButton" Content="Обновить значения" Margin="20" Click="UpdateButton_Click"/>
+        </StackPanel>
+        
+        <!-- Панель контента со скроллом -->
+        <ScrollViewer  Grid.Column="1" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <!-- Панель весны -->
+                <Controls:PlantsSeasonPanel x:Name="SpringPlantsPanel" 
+                        SeasonName="Весна" SeasonForeground="#ff009900" SeasonBlackground="#6600FF00" />
+                <!-- Панель лета -->
+                <Controls:PlantsSeasonPanel x:Name="SummerPlantsPanel" 
+                        SeasonName="Лето" SeasonForeground="#ffaa9900" SeasonBlackground="#66ffFF00" />
+                <!-- Панель осени -->
+                <Controls:PlantsSeasonPanel x:Name="AutumnPlantsPanel" 
+                        SeasonName="Осень" SeasonForeground="#ffbb4400" SeasonBlackground="#66ff8800" />
+                <!-- Панель зимы -->
+                <Controls:PlantsSeasonPanel x:Name="OtherPlantsPanel" 
+                        SeasonName="Разное" SeasonForeground="#ff000099" SeasonBlackground="#660000ff" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
